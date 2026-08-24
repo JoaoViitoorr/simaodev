@@ -5,31 +5,31 @@
 
 :root {
   /* Cores de fundo */
-  --bg: #0F0A05;           /* fundo principal — quase preto com toque marrom */
-  --bg-2: #1A1108;         /* fundo de cards e superfícies elevadas */
-  --bg-3: #221808;         /* fundo de headers de terminal, seções alternadas */
+  --bg: #0F0A05;
+  --bg-2: #1A1108;
+  --bg-3: #221808;
 
   /* Cores de texto */
-  --cream: #F4E9D8;        /* texto principal — creme quente */
-  --cream-dim: #A69880;    /* texto secundário — creme desbotado */
-  --muted: #6B5F4A;        /* texto terciário — quase invisível */
+  --cream: #F4E9D8;
+  --cream-dim: #A69880;
+  --muted: #6B5F4A;
 
   /* Acento âmbar */
-  --amber: #F5A524;        /* cor de destaque — âmbar CRT vivo */
-  --amber-dim: #B87A1A;    /* âmbar apagado — pra hover secundário */
-  --amber-glow: rgba(245, 165, 36, 0.15);  /* brilho suave */
+  --amber: #F5A524;
+  --amber-dim: #B87A1A;
+  --amber-glow: rgba(245, 165, 36, 0.15);
 
-  /* Cores auxiliares (syntax highlight do terminal, sucesso, etc.) */
-  --success: #7FB86D;      /* verde suave — status ok */
-  --keyword: #E89B4A;      /* palavras-chave de código */
-  --string: #C4D683;       /* strings de código */
-  --comment: #5A4E3C;      /* comentários de código */
+  /* Auxiliares */
+  --success: #7FB86D;
+  --keyword: #E89B4A;
+  --string: #C4D683;
+  --comment: #5A4E3C;
 
-  /* Linhas e bordas */
-  --line: #2E2416;         /* borda sutil */
-  --line-2: #3A2E1C;       /* borda um pouco mais visível */
+  /* Linhas */
+  --line: #2E2416;
+  --line-2: #3A2E1C;
 
-  /* Tipografia — fontes carregam no bloco 2 */
+  /* Tipografia */
   --f-display: 'Fraunces', Georgia, serif;
   --f-body: 'Inter', -apple-system, sans-serif;
   --f-mono: 'JetBrains Mono', 'Courier New', monospace;
@@ -40,7 +40,7 @@
 }
 
 /* ============================================================
-   RESET — zera comportamentos padrão do navegador
+   RESET
    ============================================================ */
 
 *,
@@ -75,23 +75,231 @@ img {
   display: block;
 }
 
-/* ============================================================
-   TESTE DO BLOCO 1 — remove depois
-   ============================================================ */
-
-main {
+/* Container padrão de largura máxima */
+.wrap {
   max-width: var(--max-w);
   margin: 0 auto;
-  padding: 4rem var(--pad-x);
+  padding: 0 var(--pad-x);
+  position: relative;
+}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 1rem 0;
+  background: rgba(15, 10, 5, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s;
+  font-family: var(--f-mono);
+}
+
+/* Classe adicionada por JS quando rola a página (Bloco 6) */
+header.scrolled {
+  border-color: var(--line);
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo {
+  font-family: var(--f-mono);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--cream);
+  letter-spacing: 0.02em;
+}
+
+.logo .prompt {
+  color: var(--amber);
+  margin-right: 0.5rem;
+}
+
+.logo em {
+  color: var(--amber);
+  font-style: normal;
+}
+
+.nav-links {
+  display: none;
+  gap: 1.75rem;
+  font-size: 0.82rem;
+  color: var(--cream-dim);
+}
+
+@media (min-width: 900px) {
+  .nav-links {
+    display: flex;
+  }
+}
+
+.nav-links a {
+  transition: color 0.2s;
+}
+
+.nav-links a::before {
+  content: '# ';
+  color: var(--muted);
+}
+
+.nav-links a:hover {
+  color: var(--amber);
+}
+
+.btn-wa {
+  background: var(--amber);
+  color: var(--bg);
+  padding: 0.55rem 1.15rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  font-family: var(--f-mono);
+  border-radius: 2px;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.btn-wa:hover {
+  background: var(--cream);
+  transform: translateY(-1px);
+  box-shadow: 0 0 20px var(--amber-glow);
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+
+.hero {
+  padding: 4rem 0 6rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.eyebrow {
+  font-family: var(--f-mono);
+  font-size: 0.78rem;
+  color: var(--amber);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 1.75rem;
+}
+
+.eyebrow::before {
+  content: '// ';
+  color: var(--comment);
 }
 
 h1 {
   font-family: var(--f-display);
-  font-size: 3rem;
-  color: var(--amber);
-  margin-bottom: 1rem;
+  font-size: clamp(2rem, 5vw, 3.75rem);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin-bottom: 2rem;
+  color: var(--cream);
+  max-width: 22ch;
 }
 
-p {
+h1 em {
+  font-style: italic;
+  font-weight: 500;
+  color: var(--amber);
+}
+
+/* ============================================================
+   TICKER ROTATIVO — a assinatura visual
+   ============================================================ */
+
+.ticker {
+  display: inline-block;
+  vertical-align: bottom;
+  overflow: hidden;
+  height: 1.5em;
+  line-height: 1.5;
+  position: relative;
+}
+
+.ticker-inner {
+  display: block;
+  animation: tickRoll 12s infinite;
+}
+
+.ticker-inner span {
+  display: block;
+  height: 1.5em;
+  line-height: 1.5;
+  color: var(--amber);
+  font-style: italic;
+  font-weight: 500;
+}
+
+@keyframes tickRoll {
+  0%, 20%   { transform: translateY(0); }
+  25%, 45%  { transform: translateY(-1.5em); }
+  50%, 70%  { transform: translateY(-3em); }
+  75%, 95%  { transform: translateY(-4.5em); }
+  100%      { transform: translateY(-6em); }
+}
+
+/* ============================================================
+   HERO — texto e CTAs
+   ============================================================ */
+
+.lead {
+  font-size: 1.05rem;
   color: var(--cream-dim);
+  max-width: 50ch;
+  margin-bottom: 2.5rem;
+}
+
+.ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+}
+
+.btn-primary {
+  background: var(--amber);
+  color: var(--bg);
+  padding: 0.9rem 1.75rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  font-family: var(--f-mono);
+  border-radius: 2px;
+  transition: all 0.2s;
+  display: inline-block;
+}
+
+.btn-primary:hover {
+  background: var(--cream);
+  box-shadow: 0 0 25px var(--amber-glow);
+  transform: translateY(-1px);
+}
+
+.btn-ghost {
+  padding: 0.9rem 0;
+  font-size: 0.9rem;
+  font-weight: 500;
+  font-family: var(--f-mono);
+  color: var(--cream);
+  border-bottom: 1px solid var(--cream);
+}
+
+.btn-ghost::before {
+  content: '→ ';
+  color: var(--amber);
+}
+
+.btn-ghost:hover {
+  color: var(--amber);
+  border-color: var(--amber);
 }
