@@ -494,25 +494,58 @@ h1 em {
   opacity: 0;
   transform-origin: left center;
   transform-box: fill-box;
-  animation: buildIn 10s infinite;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
 }
 
-/* Cada elemento aparece em um momento diferente do loop */
-.ms-header  { animation-delay: 1s; }
-.ms-hero    { animation-delay: 2s; }
-.ms-card-1  { animation-delay: 3s; }
-.ms-card-2  { animation-delay: 3.3s; }
-.ms-card-3  { animation-delay: 3.6s; }
-.ms-footer  { animation-delay: 4.5s; }
+.ms-header  { animation-name: buildHeader; }
+.ms-hero    { animation-name: buildHero; }
+.ms-card-1  { animation-name: buildCard1; }
+.ms-card-2  { animation-name: buildCard2; }
+.ms-card-3  { animation-name: buildCard3; }
+.ms-footer  { animation-name: buildFooter; }
 
-@keyframes buildIn {
-  0%     { opacity: 0; transform: translateX(-8px); }
-  10%    { opacity: 0.85; transform: translateX(0); }
-  60%    { opacity: 0.85; transform: translateX(0); }
-  70%    { opacity: 1; }              /* pulso vivo */
-  80%    { opacity: 0.85; }
-  90%    { opacity: 0; }              /* fade out */
-  100%   { opacity: 0; }
+/* Header aparece em 10% do loop, some em 85% */
+@keyframes buildHeader {
+  0%, 8%   { opacity: 0; transform: translateX(-8px); }
+  12%, 80% { opacity: 0.85; transform: translateX(0); }
+  85%, 100% { opacity: 0; }
+}
+
+/* Hero aparece em 20% do loop */
+@keyframes buildHero {
+  0%, 18%   { opacity: 0; transform: translateX(-8px); }
+  22%, 80% { opacity: 0.85; transform: translateX(0); }
+  85%, 100% { opacity: 0; }
+}
+
+/* Card 1 aparece em 30% */
+@keyframes buildCard1 {
+  0%, 28%   { opacity: 0; transform: translateX(-8px); }
+  32%, 80% { opacity: 0.85; transform: translateX(0); }
+  85%, 100% { opacity: 0; }
+}
+
+/* Card 2 aparece em 33% */
+@keyframes buildCard2 {
+  0%, 31%   { opacity: 0; transform: translateX(-8px); }
+  35%, 80% { opacity: 0.85; transform: translateX(0); }
+  85%, 100% { opacity: 0; }
+}
+
+/* Card 3 aparece em 36% */
+@keyframes buildCard3 {
+  0%, 34%   { opacity: 0; transform: translateX(-8px); }
+  38%, 80% { opacity: 0.85; transform: translateX(0); }
+  85%, 100% { opacity: 0; }
+}
+
+/* Footer aparece em 45% */
+@keyframes buildFooter {
+  0%, 43%   { opacity: 0; transform: translateX(-8px); }
+  47%, 80% { opacity: 0.85; transform: translateX(0); }
+  85%, 100% { opacity: 0; }
 }
 
 /* ============================================================
