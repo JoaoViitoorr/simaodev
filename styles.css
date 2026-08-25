@@ -199,8 +199,8 @@ header.scrolled {
 
 h1 {
   font-family: var(--f-display);
-  font-size: clamp(2rem, 5vw, 3.75rem);
-  font-weight: 400;
+  font-size: clamp(2.95rem, 3.75vw, 2.25rem);
+  font-weight: 500;
   line-height: 1.1;
   letter-spacing: -0.03em;
   margin-bottom: 2rem;
@@ -220,33 +220,62 @@ h1 em {
 
 .ticker {
   display: inline-block;
-  vertical-align: bottom;
-  overflow: hidden;
-  height: 1.5em;
-  line-height: 1.5;
   position: relative;
+  vertical-align: middle;
+  width: 8.5ch;
+  height: 1.3em;
+  overflow: hidden;
 }
 
-.ticker-inner {
-  display: block;
-  animation: tickRoll 12s infinite;
-}
-
-.ticker-inner span {
-  display: block;
-  height: 1.5em;
-  line-height: 1.5;
+/* Cada palavra empilhada no mesmo ponto */
+.tk-word {
+  position: absolute;
+  top: 0;
+  left: 0;
+  white-space: nowrap;
   color: var(--amber);
   font-style: italic;
   font-weight: 500;
+  opacity: 0;
+  animation-duration: 12s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+/* Cada palavra aparece em momento diferente, some pra próxima aparecer */
+.tk-1 { animation-name: word1; }
+.tk-2 { animation-name: word2; }
+.tk-3 { animation-name: word3; }
+.tk-4 { animation-name: word4; }
+
+/* Cada uma fica visível por 25% do loop, sobrepondo 3% pra transição suave */
+@keyframes word1 {
+  0%, 22%   { opacity: 1; transform: translateY(0); }
+  25%, 97%  { opacity: 0; transform: translateY(-8px); }
+  100%      { opacity: 1; transform: translateY(0); }
+}
+@keyframes word2 {
+  0%, 22%   { opacity: 0; transform: translateY(8px); }
+  25%, 47%  { opacity: 1; transform: translateY(0); }
+  50%, 100% { opacity: 0; transform: translateY(-8px); }
+}
+@keyframes word3 {
+  0%, 47%   { opacity: 0; transform: translateY(8px); }
+  50%, 72%  { opacity: 1; transform: translateY(0); }
+  75%, 100% { opacity: 0; transform: translateY(-8px); }
+}
+@keyframes word4 {
+  0%, 72%   { opacity: 0; transform: translateY(8px); }
+  75%, 97%  { opacity: 1; transform: translateY(0); }
+  100%      { opacity: 0; transform: translateY(-8px); }
 }
 
 @keyframes tickRoll {
   0%, 20%   { transform: translateY(0); }
-  25%, 45%  { transform: translateY(-1.5em); }
-  50%, 70%  { transform: translateY(-3em); }
-  75%, 95%  { transform: translateY(-4.5em); }
-  100%      { transform: translateY(-6em); }
+  25%, 45%  { transform: translateY(-1.35em); }
+  50%, 70%  { transform: translateY(-2.7em); }
+  75%, 95%  { transform: translateY(-4.05em); }
+  100%      { transform: translateY(-5.4em); }
 }
 
 /* ============================================================
