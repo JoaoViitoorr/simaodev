@@ -321,37 +321,6 @@ h1 em {
   }
 }
 
-/* ============================================================
-   TERMINAL — janela estilo VSCode/macOS
-   ============================================================ */
-
-.terminal {
-  background: var(--bg-2);
-  border: 1px solid var(--line-2);
-  border-radius: 6px;
-  overflow: hidden;
-  box-shadow:
-    0 0 40px rgba(245, 165, 36, 0.08),
-    inset 0 0 60px rgba(245, 165, 36, 0.02);
-  position: relative;
-}
-
-/* Scanlines sutis — efeito monitor CRT */
-.terminal::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: repeating-linear-gradient(
-    0deg,
-    transparent,
-    transparent 2px,
-    rgba(245, 165, 36, 0.015) 2px,
-    rgba(245, 165, 36, 0.015) 4px
-  );
-  pointer-events: none;
-  z-index: 1;
-}
-
 .terminal-bar {
   background: var(--bg-3);
   padding: 0.6rem 1rem;
@@ -574,32 +543,4 @@ h1 em {
 @keyframes statusBlink {
   0%, 100% { opacity: 0.3; }
   50%      { opacity: 1; }
-}
-
-/* ============================================================
-   SCANLINE — atravessa o wrapper de vez em quando
-   ============================================================ */
-
-.scanline {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    var(--amber),
-    transparent
-  );
-  opacity: 0;
-  animation: scan 6s infinite;
-  pointer-events: none;
-  z-index: 4;
-}
-
-@keyframes scan {
-  0%, 90%, 100% { opacity: 0; transform: translateY(0); }
-  92%           { opacity: 0.6; transform: translateY(0); }
-  99%           { opacity: 0.6; transform: translateY(500px); }
 }
