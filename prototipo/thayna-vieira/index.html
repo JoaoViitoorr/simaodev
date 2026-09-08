@@ -32,26 +32,144 @@
   <main>
 
     <!-- ========== 1. HERO ========== -->
-    <section class="hero">
-      <div class="wrap">
-        <!-- conteúdo virá no próximo turno -->
-        <p class="placeholder">[ hero — próximo turno ]</p>
-      </div>
-    </section>
+<section class="hero">
+  <div class="wrap hero-grid">
 
-    <!-- ========== 2. SOBRE A ESCUTA ========== -->
-    <section id="sobre" class="block">
-      <div class="wrap">
-        <p class="placeholder">[ sobre a escuta ]</p>
-      </div>
-    </section>
+    <div class="hero-text">
+      <p class="eyebrow">Psicanálise · CRP 00/000000</p>
 
-    <!-- ========== 3. PARA QUEM ========== -->
-    <section id="para-quem" class="block">
-      <div class="wrap">
-        <p class="placeholder">[ para quem ]</p>
+      <h1>O que você diz, e o que <em>ainda</em> não sabe que diz.</h1>
+
+      <p class="lead">
+        Escuta psicanalítica para adultos. Sessões individuais, online
+        ou presenciais em Araguari.
+      </p>
+
+      <div class="hero-ctas">
+        <a href="https://wa.me/0000000000" class="btn-cta">agendar uma conversa</a>
+        <a href="#sobre" class="btn-ghost">sobre a escuta</a>
       </div>
-    </section>
+    </div>
+
+    <div class="hero-photo">
+      <!-- Placeholder de retrato — trocar por <img> quando foto real chegar -->
+      <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+           class="portrait" aria-label="Placeholder de retrato">
+        <defs>
+          <filter id="grainPortrait">
+            <feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="2" seed="7"/>
+            <feColorMatrix values="0 0 0 0 0.24  0 0 0 0 0.28  0 0 0 0 0.23  0 0 0 0.35 0"/>
+          </filter>
+        </defs>
+
+        <!-- Fundo verde-profundo com grão -->
+        <rect width="400" height="500" fill="#2E3D31"/>
+        <rect width="400" height="500" filter="url(#grainPortrait)"/>
+
+        <!-- Moldura interna fina -->
+        <rect x="24" y="24" width="352" height="452" fill="none"
+              stroke="#F0EAD8" stroke-width="1" opacity="0.45"/>
+
+        <!-- Monograma "T" grande em italic -->
+        <text x="200" y="290" font-family="Cormorant Garamond, Georgia, serif"
+              font-size="220" font-style="italic" font-weight="400"
+              fill="#F0EAD8" text-anchor="middle" opacity="0.85">T</text>
+
+        <!-- Linha decorativa terracota -->
+        <line x1="150" y1="330" x2="250" y2="330"
+              stroke="#D49485" stroke-width="1" opacity="0.6"/>
+
+        <!-- Nome pequeno -->
+        <text x="200" y="365" font-family="Cormorant Garamond, Georgia, serif"
+              font-size="18" font-style="italic" font-weight="400"
+              fill="#F0EAD8" text-anchor="middle" opacity="0.7"
+              letter-spacing="3">Thayná Vieira</text>
+
+        <!-- Numeração tipo arquivo/série -->
+        <text x="360" y="460" font-family="Georgia, serif" font-size="10"
+              fill="#D49485" text-anchor="end" opacity="0.6"
+              letter-spacing="2">01</text>
+      </svg>
+    </div>
+
+  </div>
+</section>
+
+<!-- ========== 2. SOBRE A ESCUTA ========== -->
+<section id="sobre" class="block">
+  <div class="wrap sobre-grid">
+
+    <aside class="section-label">
+      <span class="section-num">02</span>
+      <span class="section-marker">a escuta</span>
+    </aside>
+
+    <div class="sobre-text">
+      <h2>Sobre a <em>escuta</em></h2>
+
+      <p class="sobre-p">
+        A psicanálise não promete solução rápida. Ela oferece um espaço regular,
+        protegido pelo tempo e pela palavra, em que o que costuma ficar embaralhado
+        no dia começa aos poucos a ganhar sentido.
+      </p>
+
+      <p class="sobre-p">
+        Meu trabalho é ouvir. Ouvir o que você diz, o que hesita em dizer, o que
+        insiste em voltar mesmo quando você tenta mudar de assunto. Não interpreto
+        pra impressionar — acompanho pra que você chegue às suas próprias conexões.
+      </p>
+
+      <p class="sobre-p sobre-p--pause">
+        Sessões de 50 minutos, uma vez por semana. Presencial em Araguari ou online.
+        A regularidade importa: é ela que sustenta o trabalho ao longo do tempo.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ========== 3. PARA QUEM ========== -->
+<section id="para-quem" class="block">
+  <div class="wrap">
+
+    <header class="para-quem-header">
+      <span class="section-num">03</span>
+      <h2>Para <em>quem</em></h2>
+      <p class="lead">
+        Não é preciso chegar com uma questão pronta.
+      </p>
+    </header>
+
+    <div class="para-quem-lista">
+
+      <article class="quem-bloco">
+        <h3 class="quem-titulo">Para quem sente que precisa <em>se explicar</em> demais.</h3>
+        <p>
+          No trabalho, com a família, com quem ama. A necessidade de agradar,
+          quando pesa, deixa de proteger e começa a apagar.
+        </p>
+      </article>
+
+      <article class="quem-bloco">
+        <h3 class="quem-titulo">Para quem já tentou <em>resolver</em> sozinho.</h3>
+        <p>
+          Ler livro, mudar hábito, começar mil coisas. Chega um ponto em que
+          pensar sobre si sem ninguém ouvindo vira ruído em vez de clareza.
+        </p>
+      </article>
+
+      <article class="quem-bloco">
+        <h3 class="quem-titulo">Para quem chega sem saber <em>o motivo</em> exato.</h3>
+        <p>
+          Não precisa ter diagnóstico, pauta ou questão pronta. Muitas vezes o
+          que motiva o primeiro contato não é o que sustenta os próximos.
+        </p>
+      </article>
+
+    </div>
+
+  </div>
+</section>
 
     <!-- ========== 4. FORMATO ========== -->
     <section id="formato" class="block">

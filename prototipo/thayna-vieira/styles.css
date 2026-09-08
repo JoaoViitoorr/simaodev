@@ -312,3 +312,211 @@ p {
   text-align: center;
   border-radius: 4px;
 }
+/* ============================================================
+   TEXTURA DE FUNDO — grão sutil via SVG inline (data-URI)
+   Zero request extra. Opacidade baixíssima: você só sente quando não tá lá.
+   %23 = # URL-encoded (pra data-URI não confundir o parser)
+   ============================================================ */
+
+body {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' seed='3'/><feColorMatrix values='0 0 0 0 0.94  0 0 0 0 0.92  0 0 0 0 0.85  0 0 0 0.03 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
+
+/* ============================================================
+   HERO — 2 colunas texto + retrato
+   ============================================================ */
+
+.hero {
+  padding: 5rem 0 7rem;
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+@media (min-width: 900px) {
+  .hero-grid {
+    grid-template-columns: 6fr 5fr;
+    gap: 5rem;
+  }
+}
+
+.eyebrow {
+  font-family: var(--f-corpo);
+  font-size: 0.9rem;
+  font-style: italic;
+  color: var(--terracota);
+  letter-spacing: 0.06em;
+  margin-bottom: 2rem;
+}
+
+.hero h1 {
+  margin-bottom: 2.5rem;
+  max-width: 14ch;   /* força quebra editorial em ~3 linhas */
+}
+
+.hero .lead {
+  margin-bottom: 3rem;
+  max-width: 38ch;   /* estreito de propósito: ritmo contemplativo */
+}
+
+.hero-ctas {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Retrato — no mobile aparece PRIMEIRO (order -1),
+   no desktop volta pra ordem natural do DOM */
+.hero-photo {
+  order: -1;
+  max-width: 340px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+@media (min-width: 900px) {
+  .hero-photo {
+    order: 0;
+    max-width: none;
+  }
+}
+
+.portrait {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 12px 40px rgba(0, 0, 0, 0.35));
+}
+
+/* ============================================================
+   SECTION LABEL — numeração editorial (usado em várias seções)
+   ============================================================ */
+
+.section-label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding-top: 1.5rem;   /* alinha visualmente com primeira linha do h2 */
+}
+
+.section-num {
+  font-family: var(--f-titulo);
+  font-size: 1.5rem;
+  font-style: italic;
+  color: var(--terracota);
+  line-height: 1;
+}
+
+.section-marker {
+  font-family: var(--f-corpo);
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--creme-muted);
+  letter-spacing: 0.08em;
+}
+
+/* ============================================================
+   SOBRE A ESCUTA
+   ============================================================ */
+
+.sobre-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+}
+
+@media (min-width: 900px) {
+  .sobre-grid {
+    grid-template-columns: 180px 1fr;
+    gap: 4rem;
+  }
+}
+
+.sobre-text h2 {
+  margin-bottom: 2.5rem;
+}
+
+.sobre-p {
+  margin-bottom: 1.75rem;
+  max-width: 55ch;
+  line-height: 1.85;   /* mais alto que o padrão: ritmo respirado */
+}
+
+/* Terceiro parágrafo — o "operacional" — ganha tratamento de citação */
+.sobre-p--pause {
+  border-left: 1px solid var(--terracota);
+  padding-left: 1.5rem;
+  margin-top: 3rem;
+  font-style: italic;
+  color: var(--creme-suave);
+}
+
+/* ============================================================
+   PARA QUEM — 3 blocos em prosa, empilhados verticalmente
+   (contra-intuitivo mas proposital: força pausa entre eles)
+   ============================================================ */
+
+.para-quem-header {
+  margin-bottom: 5rem;
+  max-width: 640px;
+}
+
+.para-quem-header .section-num {
+  display: block;
+  margin-bottom: 1.25rem;
+}
+
+.para-quem-header h2 {
+  margin-bottom: 1.5rem;
+}
+
+.para-quem-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+  max-width: 780px;
+}
+
+@media (min-width: 700px) {
+  .para-quem-lista {
+    gap: 4rem;
+  }
+}
+
+.quem-bloco {
+  padding-left: 2rem;
+  border-left: 1px solid var(--linha);
+  transition: border-color 0.4s ease;
+}
+
+.quem-bloco:hover {
+  border-left-color: var(--terracota);
+}
+
+.quem-titulo {
+  font-family: var(--f-titulo);
+  font-size: clamp(1.4rem, 2.5vw, 1.85rem);
+  font-weight: 400;
+  margin-bottom: 1.25rem;
+  max-width: 32ch;
+  line-height: 1.3;
+  color: var(--creme-forte);
+}
+
+/* Sobrescreve o italic terracota padrão pra ser um pouco mais suave aqui */
+.quem-titulo em {
+  font-style: italic;
+  color: var(--terracota);
+}
+
+.quem-bloco p {
+  max-width: 52ch;
+  line-height: 1.85;
+  color: var(--creme-suave);
+}
