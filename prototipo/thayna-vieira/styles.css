@@ -1,0 +1,314 @@
+/* ============================================================
+   THAYNÁ VIEIRA · PSICANÁLISE
+   Design system — variáveis, reset, tipografia, base
+   ============================================================ */
+
+:root {
+  /* --- Verdes (fundo, profundidade, sombras) --- */
+  --verde-fundo:    #3A4A3D;   /* fundo principal — verde musgo dos posts */
+  --verde-profundo: #2E3D31;   /* seções alternadas, elevação sutil */
+  --verde-carvao:   #1F2A22;   /* fundo mais profundo, hover states */
+
+  /* --- Cremes (todo texto, borda, elementos claros) --- */
+  --creme:        #F0EAD8;                    /* texto principal (amanteigado) */
+  --creme-forte:  #F5EFDC;                    /* títulos, contraste máximo */
+  --creme-suave:  rgba(240, 234, 216, 0.7);   /* texto secundário */
+  --creme-muted:  rgba(240, 234, 216, 0.5);   /* legendas, metadados */
+
+  /* --- Terracotas (destaque, italic, CTA) --- */
+  --terracota:       #D49485;                   /* destaque de palavras em italic */
+  --terracota-forte: #B87765;                   /* CTA botão */
+  --terracota-suave: rgba(212, 148, 133, 0.15); /* glow, background sutil */
+
+  /* --- Linhas divisórias --- */
+  --linha:       rgba(240, 234, 216, 0.12);
+  --linha-forte: rgba(240, 234, 216, 0.25);
+
+  /* --- Tipografia --- */
+  --f-titulo: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --f-corpo:  'Lora', 'Iowan Old Style', Georgia, serif;
+
+  /* --- Layout --- */
+  --wrap-max: 1120px;
+  --wrap-pad: 1.5rem;
+}
+
+/* ============================================================
+   RESET — enxuto, só o necessário
+   ============================================================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Base 16px — todo rem calcula a partir daqui */
+}
+
+body {
+  background: var(--verde-fundo);
+  color: var(--creme);
+  font-family: var(--f-corpo);
+  font-size: 17px;
+  line-height: 1.75;   /* prosa serif precisa respirar mais que sans */
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  min-height: 100vh;
+}
+
+img, svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: inherit;
+}
+
+/* Foco visível pra teclado — acessibilidade */
+:focus-visible {
+  outline: 2px solid var(--terracota);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ============================================================
+   TIPOGRAFIA — hierarquia editorial
+   ============================================================ */
+
+h1, h2, h3, h4 {
+  font-family: var(--f-titulo);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.005em;
+  color: var(--creme-forte);
+}
+
+h1 {
+  font-size: clamp(2.5rem, 5.5vw, 4.25rem);
+  font-weight: 400;   /* Cormorant fica elegante em peso baixo em títulos grandes */
+  letter-spacing: -0.015em;
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 400;
+  max-width: 22ch;
+}
+
+h3 {
+  font-size: clamp(1.4rem, 2vw, 1.75rem);
+  font-weight: 500;
+}
+
+/* Italic em títulos = palavra-âncora, sempre em terracota
+   (o padrão visual dos posts dela) */
+h1 em, h2 em, h3 em {
+  font-style: italic;
+  color: var(--terracota);
+  font-weight: 400;
+}
+
+p {
+  max-width: 62ch;   /* legibilidade — nunca linhas muito largas em serif */
+  color: var(--creme);
+}
+
+/* Texto secundário (subtítulos, legendas) */
+.lead {
+  font-size: 1.15rem;
+  color: var(--creme-suave);
+  font-style: italic;
+  max-width: 55ch;
+}
+
+/* ============================================================
+   LAYOUT — wrap, block, seção base
+   ============================================================ */
+
+.wrap {
+  width: 100%;
+  max-width: var(--wrap-max);
+  margin: 0 auto;
+  padding: 0 var(--wrap-pad);
+}
+
+/* Seção padrão — respiração generosa, o padrão de site de saúde mental
+   é seção alta que "força" o visitante a desacelerar a rolagem */
+.block {
+  padding: 7rem 0;
+  position: relative;
+}
+
+/* Seção alternada — profundidade sutil */
+.block:nth-of-type(even) {
+  background: var(--verde-profundo);
+}
+
+/* CTA final tem tratamento especial */
+.block--cta {
+  padding: 9rem 0;
+  text-align: center;
+}
+
+/* ============================================================
+   HEADER / NAV
+   ============================================================ */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(58, 74, 61, 0.85);   /* mesma cor de fundo, semi-transparente */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--linha);
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+  gap: 2rem;
+}
+
+.logo {
+  font-family: var(--f-titulo);
+  font-size: 1.35rem;
+  font-weight: 500;
+  color: var(--creme-forte);
+  letter-spacing: 0.01em;
+}
+
+.nav-links {
+  display: none;
+  gap: 2rem;
+  font-size: 0.95rem;
+  font-style: italic;
+  color: var(--creme-suave);
+}
+
+@media (min-width: 800px) {
+  .nav-links {
+    display: flex;
+  }
+}
+
+.nav-links a {
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--terracota);
+}
+
+/* ============================================================
+   BOTÕES
+   ============================================================ */
+
+.btn-cta {
+  display: inline-block;
+  background: var(--terracota-forte);
+  color: var(--creme-forte);
+  padding: 1rem 2rem;
+  font-family: var(--f-corpo);
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  border: 1px solid var(--terracota-forte);
+}
+
+.btn-cta:hover {
+  background: transparent;
+  color: var(--terracota);
+  border-color: var(--terracota);
+  transform: translateY(-1px);
+}
+
+/* Variante pequena — pro header */
+.btn-cta--sm {
+  padding: 0.6rem 1.2rem;
+  font-size: 0.9rem;
+}
+
+/* Variante fantasma — secundário */
+.btn-ghost {
+  display: inline-block;
+  color: var(--creme);
+  padding: 1rem 2rem;
+  font-family: var(--f-corpo);
+  font-size: 1rem;
+  border: 1px solid var(--linha-forte);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.btn-ghost:hover {
+  border-color: var(--terracota);
+  color: var(--terracota);
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+
+.site-footer {
+  padding: 2.5rem 0;
+  background: var(--verde-carvao);
+  color: var(--creme-muted);
+  font-size: 0.85rem;
+  text-align: center;
+  border-top: 1px solid var(--linha);
+}
+
+.site-footer p {
+  max-width: none;   /* sobrescreve o max-width padrão */
+  margin: 0.35rem 0;
+  color: var(--creme-suave);
+}
+
+.site-footer .footer-muted {
+  color: var(--creme-muted);
+  font-style: italic;
+}
+
+.site-footer a {
+  color: var(--terracota);
+  transition: color 0.2s;
+}
+
+.site-footer a:hover {
+  color: var(--terracota-forte);
+}
+
+/* ============================================================
+   PLACEHOLDER — só enquanto o esqueleto não tem conteúdo
+   REMOVER quando as seções forem preenchidas
+   ============================================================ */
+
+.placeholder {
+  font-family: monospace;
+  color: var(--creme-muted);
+  padding: 3rem 0;
+  border: 1px dashed var(--linha-forte);
+  text-align: center;
+  border-radius: 4px;
+}

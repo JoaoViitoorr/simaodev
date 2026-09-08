@@ -24,7 +24,7 @@
 - [x] **Bloco 3** — órbita SVG animada com interatividade (opção C)
 - [x] **Bloco 4** — Trabalhos + Formatos + Processo
 - [x] **Bloco 5** — Sobre + FAQ + CTA final + Footer
-- [ ] **Bloco 6** — Cursor dot+ring + constellation + easter egg
+- [X] **Bloco 6** — Cursor dot+ring + constellation + easter egg
 - [ ] **Deploy no Vercel** conectando GitHub
 - [ ] **Registro do domínio** simaodev.com.br no registro.br
 - [ ] **Apontamento** do domínio no Vercel
