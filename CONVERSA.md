@@ -23,7 +23,7 @@
 - [x] **Bloco 2** — header + hero (ticker rotativo funcionando)
 - [x] **Bloco 3** — órbita SVG animada com interatividade (opção C)
 - [x] **Bloco 4** — Trabalhos + Formatos + Processo
-- [ ] **Bloco 5** — Sobre + FAQ + CTA final + Footer
+- [x] **Bloco 5** — Sobre + FAQ + CTA final + Footer
 - [ ] **Bloco 6** — Cursor dot+ring + constellation + easter egg
 - [ ] **Deploy no Vercel** conectando GitHub
 - [ ] **Registro do domínio** simaodev.com.br no registro.br
@@ -197,3 +197,9 @@ Qualquer IA moderna (Claude, ChatGPT, Gemini) consegue continuar de
 onde parou com esse contexto.
 
 ═══════════════════════════════════════════════════════════════════════
+### Sobre cursor customizado
+- Só ativa em (hover: hover) and (pointer: fine)
+- Guardas duplas: CSS esconde + JS não instala em touch
+- Lerp factor 0.18 (equilíbrio entre nervoso e preguiçoso)
+- Ring cresce em: a, button, summary, .work, .format, .step
+- Decisão consciente: em produto, não faria isso — portfolio é vitrine

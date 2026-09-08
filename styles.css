@@ -349,70 +349,6 @@ h1 em {
     gap: 4rem;
   }
 }
-
-.terminal-bar {
-  background: var(--bg-3);
-  padding: 0.6rem 1rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  border-bottom: 1px solid var(--line-2);
-  font-family: var(--f-mono);
-  font-size: 0.72rem;
-  color: var(--muted);
-}
-
-.dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-}
-
-.dot-r { background: #E06C75; }
-.dot-y { background: var(--amber); }
-.dot-g { background: var(--success); }
-
-.terminal-title {
-  margin-left: 0.75rem;
-}
-
-.terminal-body {
-  padding: 1.5rem;
-  font-family: var(--f-mono);
-  font-size: 0.82rem;
-  line-height: 1.7;
-  min-height: 320px;
-  position: relative;
-  z-index: 2;
-}
-
-/* Cada linha digitada */
-.term-line {
-  white-space: pre-wrap;
-  word-break: break-word;
-}
-
-/* Cores de syntax highlight */
-.term-comment { color: var(--comment); }
-.term-tag     { color: var(--amber-dim); }
-.term-keyword { color: var(--keyword); }
-.term-string  { color: var(--string); }
-
-/* Cursor piscando no final de cada snippet */
-.term-cursor {
-  display: inline-block;
-  width: 8px;
-  height: 1em;
-  background: var(--amber);
-  vertical-align: text-bottom;
-  animation: blink 1s step-end infinite;
-  margin-left: 2px;
-}
-
-@keyframes blink {
-  50% { opacity: 0; }
-}
-
 /* ============================================================
    ÓRBITA SVG — hero visual
    ============================================================ */
@@ -1148,4 +1084,101 @@ footer {
   gap: 1rem;
   color: var(--muted);
   font-size: 0.78rem;
+}
+/* ============================================================
+   BLOCO 6 — CURSOR CUSTOMIZADO
+   Só ativa em desktop com mouse fino
+   ============================================================ */
+
+@media (hover: hover) and (pointer: fine) {
+  body {
+    cursor: none;
+  }
+
+  /* Links e botões também escondem cursor nativo */
+  a, button, summary {
+    cursor: none;
+  }
+
+  .cursor-dot,
+  .cursor-ring {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+  }
+
+  .cursor-dot.active,
+  .cursor-ring.active {
+    opacity: 1;
+  }
+
+  /* Dot: pequeno, âmbar, segue mouse INSTANTANEAMENTE (sem transition) */
+  .cursor-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--amber);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    /* SEM transition no transform — precisa ser imediato */
+  }
+
+  /* Ring: contorno, segue com lag suave via lerp no JS */
+  .cursor-ring {
+    width: 32px;
+    height: 32px;
+    border: 1px solid var(--amber);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    /* transition só nas propriedades de hover, não no transform */
+    transition:
+      opacity 0.25s ease,
+      width 0.2s ease,
+      height 0.2s ease,
+      border-color 0.2s ease,
+      background 0.2s ease;
+  }
+
+  /* Ring "hover" — cresce e ganha preenchimento sutil */
+  .cursor-ring.hovering {
+    width: 48px;
+    height: 48px;
+    border-color: var(--cream);
+    background: rgba(245, 165, 36, 0.08);
+  }
+}
+
+/* Touch/tablet: cursor nativo, sem elementos customizados */
+@media (hover: none), (pointer: coarse) {
+  .cursor-dot,
+  .cursor-ring {
+    display: none;
+  }
+}
+
+/* ============================================================
+   BLOCO 6 — CONSTELLATION (canvas de fundo)
+   ============================================================ */
+
+#constellation {
+  position: fixed;
+  inset: 0; /* atalho pra top:0; right:0; bottom:0; left:0 */
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: -1; /* atrás de tudo */
+  opacity: 0.5;
+}
+
+/* Respeita quem prefere menos movimento */
+@media (prefers-reduced-motion: reduce) {
+  #constellation {
+    display: none;
+  }
+  .cursor-ring {
+    transition: opacity 0.25s ease;
+  }
 }
