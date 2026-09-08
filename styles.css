@@ -876,3 +876,276 @@ h2 em {
   content: '~ ';
   color: var(--muted);
 }
+/* ============================================================
+   SOBRE — foto placeholder + texto pessoal
+   ============================================================ */
+
+.about {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+/* Desktop: coluna fixa de foto à esquerda, texto flui à direita */
+@media (min-width: 800px) {
+  .about {
+    grid-template-columns: 260px 1fr;
+    gap: 3.5rem;
+  }
+}
+
+/* aspect-ratio: 3/4 mantém proporção retrato sem padding-hack antigo */
+.photo-placeholder {
+  aspect-ratio: 3 / 4;
+  background: var(--bg-2);
+  border: 1px solid var(--line-2);
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--f-mono);
+  font-size: 0.78rem;
+  color: var(--muted);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Efeito CRT — riscas horizontais sutis no placeholder */
+.photo-placeholder::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent 0,
+    transparent 3px,
+    rgba(245, 165, 36, 0.03) 3px,
+    rgba(245, 165, 36, 0.03) 4px
+  );
+  pointer-events: none;
+}
+
+.ph-mark::before { content: '// '; color: var(--comment); }
+
+.about-text p {
+  color: var(--cream-dim);
+  margin-bottom: 1.2rem;
+  max-width: 62ch;
+}
+
+.about-text p:last-child {
+  margin-bottom: 0;
+}
+
+/* Última linha ganha destaque: barra âmbar à esquerda, mono */
+.about-signature {
+  color: var(--cream) !important;
+  border-left: 2px solid var(--amber);
+  padding-left: 1rem;
+  font-family: var(--f-mono);
+  font-size: 0.92rem;
+  margin-top: 1.75rem !important;
+}
+
+/* ============================================================
+   FAQ — accordion nativo com <details name="faq">
+   Baseline 2024: mesmo name = grupo, só um aberto por vez, sem JS
+   ============================================================ */
+
+.faq {
+  max-width: 780px;
+  border-top: 1px solid var(--line-2);
+}
+
+.faq details {
+  border-bottom: 1px solid var(--line-2);
+}
+
+.faq summary {
+  padding: 1.5rem 3rem 1.5rem 0;
+  cursor: pointer;
+  list-style: none; /* remove seta padrão do Firefox/Chrome */
+  font-family: var(--f-display);
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--cream);
+  position: relative;
+  transition: color 0.2s;
+}
+
+/* Remove seta padrão do Safari/WebKit */
+.faq summary::-webkit-details-marker { display: none; }
+
+/* Ícone customizado à direita: "+" que rotaciona virando "×" */
+.faq summary::after {
+  content: '+';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--f-mono);
+  font-size: 1.5rem;
+  color: var(--amber);
+  transition: transform 0.3s ease;
+}
+
+.faq summary:hover {
+  color: var(--amber);
+}
+
+.faq details[open] summary {
+  color: var(--amber);
+}
+
+/* +45º transforma o + em ×, transição suave */
+.faq details[open] summary::after {
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.faq-a {
+  padding: 0 3rem 1.75rem 0;
+  color: var(--cream-dim);
+  animation: faqReveal 0.3s ease;
+}
+
+.faq-a p {
+  max-width: 65ch;
+}
+
+@keyframes faqReveal {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0);   }
+}
+
+/* ============================================================
+   CTA FINAL — fechamento com brilho âmbar
+   ============================================================ */
+
+.cta-final {
+  padding: 7rem 0 8rem;
+  text-align: center;
+  border-bottom: 1px solid var(--line);
+  position: relative;
+  /* Glow sutil âmbar no centro, sem sobrecarregar */
+  background:
+    radial-gradient(
+      ellipse at 50% 40%,
+      var(--amber-glow) 0%,
+      transparent 60%
+    );
+}
+
+.cta-cursor {
+  font-family: var(--f-mono);
+  color: var(--success);
+  font-size: 0.85rem;
+  margin-bottom: 1.25rem;
+  letter-spacing: 0.05em;
+}
+
+.cta-headline {
+  font-family: var(--f-display);
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  max-width: 22ch;
+  margin: 0 auto 1.75rem;
+  color: var(--cream);
+}
+
+.cta-headline em {
+  font-style: italic;
+  color: var(--amber);
+  font-weight: 500;
+}
+
+.cta-lead {
+  color: var(--cream-dim);
+  max-width: 52ch;
+  margin: 0 auto 2.5rem;
+}
+
+.btn-cta {
+  font-size: 0.95rem;
+  padding: 0.9rem 1.75rem;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+
+footer {
+  padding: 4rem 0 2rem;
+  font-family: var(--f-mono);
+  font-size: 0.85rem;
+  color: var(--cream-dim);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid var(--line-2);
+}
+
+/* Desktop: logo mais largo à esquerda, duas colunas iguais à direita */
+@media (min-width: 800px) {
+  .footer-grid {
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 3rem;
+  }
+}
+
+.footer-col ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer-col a {
+  color: var(--cream-dim);
+  transition: color 0.2s;
+}
+
+.footer-col a:hover {
+  color: var(--amber);
+}
+
+.footer-tag {
+  margin-top: 1rem;
+  color: var(--muted);
+  font-family: var(--f-body);
+  font-size: 0.9rem;
+  max-width: 32ch;
+}
+
+.footer-h {
+  color: var(--amber);
+  text-transform: lowercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 1rem;
+  font-size: 0.78rem;
+}
+
+.footer-h::before {
+  content: '// ';
+  color: var(--comment);
+}
+
+.footer-muted {
+  color: var(--muted);
+}
+
+.footer-bottom {
+  padding-top: 1.75rem;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
