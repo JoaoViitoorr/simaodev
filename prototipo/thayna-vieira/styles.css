@@ -521,3 +521,61 @@ body {
   line-height: 1.85;
   color: var(--creme-suave);
 }
+/* ============================================================
+   SOBRE MIM — foto grande + texto pessoal
+   Layout inverso do hero: foto à esquerda, texto à direita
+   ============================================================ */
+
+.sobre-mim-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+@media (min-width: 900px) {
+  .sobre-mim-grid {
+    grid-template-columns: 5fr 6fr;   /* foto um pouco menor que texto */
+    gap: 5rem;
+  }
+}
+
+.sobre-mim-photo {
+  max-width: 420px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+@media (min-width: 900px) {
+  .sobre-mim-photo {
+    max-width: none;
+  }
+}
+
+/* Variante do .portrait — mais alto, sem sombra tão pesada */
+.portrait--tall {
+  filter: drop-shadow(0 8px 30px rgba(0, 0, 0, 0.28));
+}
+
+.sobre-mim-text .section-num {
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.sobre-mim-text h2 {
+  margin-bottom: 2.5rem;
+}
+
+/* Assinatura pessoal ao fim — como se fosse uma carta */
+.sobre-mim-signoff {
+  margin-top: 2.5rem;
+  font-size: 1.4rem;
+  color: var(--terracota);
+  border: none;               /* remove border se herdou de .sobre-p--pause */
+  padding: 0;
+}
+
+.sobre-mim-signoff em {
+  font-style: italic;
+  color: var(--terracota);
+}

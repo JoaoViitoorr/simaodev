@@ -26,8 +26,7 @@
       <a href="#" class="logo">Thayná Vieira</a>
       <nav class="nav-links">
         <a href="#sobre">sobre o trabalho</a>
-        <a href="#para-quem">para quem</a>
-        <a href="#formato">formato</a>
+        <a href="#sobre-mim">sobre mim</a>
         <a href="#duvidas">dúvidas</a>
       </nav>
       <a href="https://wa.me/0000000000" class="btn-cta btn-cta--sm">agendar</a>
@@ -129,56 +128,60 @@
       </div>
     </section>
 
-    <!-- ========== 3. PARA QUEM ========== -->
-    <section id="para-quem" class="block">
-      <div class="wrap">
+    <!-- ========== 3. SOBRE MIM ========== -->
+    <section id="sobre-mim" class="block">
+      <div class="wrap sobre-mim-grid">
 
-        <header class="para-quem-header">
+        <div class="sobre-mim-photo">
+          <!-- Placeholder — trocar por <img src="assets/foto-sobre.jpg" alt="..."> -->
+          <svg viewBox="0 0 500 620" xmlns="http://www.w3.org/2000/svg" class="portrait portrait--tall"
+            aria-label="Placeholder de foto de Thayná Vieira">
+            <defs>
+              <filter id="grainSobre">
+                <feTurbulence type="fractalNoise" baseFrequency="0.72" numOctaves="2" seed="11" />
+                <feColorMatrix values="0 0 0 0 0.24  0 0 0 0 0.28  0 0 0 0 0.23  0 0 0 0.4 0" />
+              </filter>
+            </defs>
+
+            <!-- Fundo verde-profundo -->
+            <rect width="500" height="620" fill="#2E3D31" />
+            <rect width="500" height="620" filter="url(#grainSobre)" />
+
+            <!-- Moldura interna dupla — o detalhe que diferencia do hero -->
+            <rect x="28" y="28" width="444" height="564" fill="none" stroke="#F0EAD8" stroke-width="1" opacity="0.35" />
+            <rect x="40" y="40" width="420" height="540" fill="none" stroke="#D49485" stroke-width="0.5"
+              opacity="0.5" />
+
+            <!-- Etiqueta "retrato" tipo catálogo museológico -->
+            <text x="250" y="290" font-family="Lora, Georgia, serif" font-size="13" font-style="italic" fill="#F0EAD8"
+              text-anchor="middle" opacity="0.5" letter-spacing="4">retrato</text>
+
+            <!-- Linha decorativa -->
+            <line x1="215" y1="310" x2="285" y2="310" stroke="#D49485" stroke-width="0.5" opacity="0.7" />
+
+            <!-- Número série tipo arquivo/coleção -->
+            <text x="250" y="345" font-family="Cormorant Garamond, Georgia, serif" font-size="42" font-style="italic"
+              font-weight="400" fill="#F0EAD8" text-anchor="middle" opacity="0.65">n.º 02</text>
+          </svg>
+        </div>
+
+        <div class="sobre-mim-text">
           <span class="section-num">03</span>
-          <h2>Para <em>quem</em></h2>
-          <p class="lead">
-            Não é preciso chegar com uma questão pronta.
+          <h2>Sobre <em>mim</em></h2>
+
+          <p class="sobre-p">
+            [ Espaço para o texto que a Thayná vai escrever em primeira pessoa —
+            algo espontâneo sobre quem ela é, sua formação e o que a levou à
+            psicanálise. Aqui vai a voz dela. ]
           </p>
-        </header>
 
-        <div class="para-quem-lista">
-
-          <article class="quem-bloco">
-            <h3 class="quem-titulo">Para quem quer entender de onde <em>vem</em> o que sente.</h3>
-            <p>
-              Nem sempre o que aparece agora começou agora. Escutar a própria história
-              ajuda a reconhecer o que se repete.
-            </p>
-          </article>
-
-          <article class="quem-bloco">
-            <h3 class="quem-titulo">Para quem quer se ouvir com mais <em>atenção</em>.</h3>
-            <p>
-              Fora do consultório, pensar sobre si costuma virar ruído. A sessão é o
-              espaço em que a própria voz encontra tempo.
-            </p>
-          </article>
-
-          <article class="quem-bloco">
-            <h3 class="quem-titulo">Para quem quer dar nome ao que ainda <em>não tem</em>.</h3>
-            <p>
-              Não é preciso chegar com pergunta pronta. Muitas vezes o trabalho começa
-              justamente em nomear.
-            </p>
-          </article>
-
+          <p class="sobre-p sobre-mim-signoff">
+            <em>Thayná</em>
+          </p>
         </div>
 
       </div>
     </section>
-
-    <!-- ========== 4. FORMATO ========== -->
-    <section id="formato" class="block">
-      <div class="wrap">
-        <p class="placeholder">[ formato ]</p>
-      </div>
-    </section>
-
     <!-- ========== 5. FORMAÇÃO ========== -->
     <section id="formacao" class="block">
       <div class="wrap">
