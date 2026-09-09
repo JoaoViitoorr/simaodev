@@ -448,6 +448,7 @@ a
   letter-spacing: 0.08em;
 }
 
+
 /* ============================================================
    SOBRE O TRABALHO
    ============================================================ */
@@ -709,4 +710,40 @@ a
 @keyframes faqReveal {
   from { opacity: 0; transform: translateY(-4px); }
   to   { opacity: 1; transform: translateY(0);   }
+}
+
+/* ============================================================
+   CONTATO — fechamento em formato "carta"
+   ============================================================ */
+
+.contato-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+}
+
+@media (min-width: 900px) {
+  .contato-grid {
+    grid-template-columns: 180px 1fr;
+    gap: 4rem;
+  }
+}
+
+.contato-content h2 {
+  margin-bottom: 1.5rem;
+}
+
+.contato-lead {
+  margin-bottom: 2.5rem;
+  max-width: 42ch;
+  font-size: 1.1rem;
+  font-style: italic;
+  color: var(--creme-suave);
+  line-height: 1.7;
+}
+
+.btn-cta--lg {
+  font-size: 1.05rem;
+  padding: 1.15rem 2.25rem;
+  letter-spacing: 0.03em;
 }
