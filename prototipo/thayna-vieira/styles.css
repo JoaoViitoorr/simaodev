@@ -356,8 +356,9 @@ body {
 }
 
 .hero h1 {
-  margin-bottom: 1.75rem;
-  max-width: 14ch;   /* força quebra editorial em ~3 linhas */
+  letter-spacing: -0.025em;   /* apertar levemente */
+  word-spacing: -0.05em;      /* apertar espaço entre palavras */
+  line-height: 1.05;          /* linhas mais próximas verticalmente */
 }
 
 .hero .lead {
