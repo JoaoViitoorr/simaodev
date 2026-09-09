@@ -5,28 +5,38 @@
 
 :root {
   /* --- Verdes (fundo, profundidade, sombras) --- */
-  --verde-fundo:    #3A4A3D;   /* fundo principal — verde musgo dos posts */
-  --verde-profundo: #2E3D31;   /* seções alternadas, elevação sutil */
-  --verde-carvao:   #1F2A22;   /* fundo mais profundo, hover states */
+  --verde-fundo: #3A4A3D;
+  /* fundo principal — verde musgo dos posts */
+  --verde-profundo: #2E3D31;
+  /* seções alternadas, elevação sutil */
+  --verde-carvao: #1F2A22;
+  /* fundo mais profundo, hover states */
 
   /* --- Cremes (todo texto, borda, elementos claros) --- */
-  --creme:        #F0EAD8;                    /* texto principal (amanteigado) */
-  --creme-forte:  #F5EFDC;                    /* títulos, contraste máximo */
-  --creme-suave:  rgba(240, 234, 216, 0.7);   /* texto secundário */
-  --creme-muted:  rgba(240, 234, 216, 0.5);   /* legendas, metadados */
+  --creme: #F0EAD8;
+  /* texto principal (amanteigado) */
+  --creme-forte: #F5EFDC;
+  /* títulos, contraste máximo */
+  --creme-suave: rgba(240, 234, 216, 0.7);
+  /* texto secundário */
+  --creme-muted: rgba(240, 234, 216, 0.5);
+  /* legendas, metadados */
 
   /* --- Terracotas (destaque, italic, CTA) --- */
-  --terracota:       #D49485;                   /* destaque de palavras em italic */
-  --terracota-forte: #B87765;                   /* CTA botão */
-  --terracota-suave: rgba(212, 148, 133, 0.15); /* glow, background sutil */
+  --terracota: #D49485;
+  /* destaque de palavras em italic */
+  --terracota-forte: #B87765;
+  /* CTA botão */
+  --terracota-suave: rgba(212, 148, 133, 0.15);
+  /* glow, background sutil */
 
   /* --- Linhas divisórias --- */
-  --linha:       rgba(240, 234, 216, 0.12);
+  --linha: rgba(240, 234, 216, 0.12);
   --linha-forte: rgba(240, 234, 216, 0.25);
 
   /* --- Tipografia --- */
   --f-titulo: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
-  --f-corpo:  'Lora', 'Iowan Old Style', Georgia, serif;
+  --f-corpo: 'Lora', 'Iowan Old Style', Georgia, serif;
 
   /* --- Layout --- */
   --wrap-max: 1120px;
@@ -53,7 +63,8 @@ body {
   color: var(--creme);
   font-family: var(--f-corpo);
   font-size: 17px;
-  line-height: 1.75;   /* prosa serif precisa respirar mais que sans */
+  line-height: 1.75;
+  /* prosa serif precisa respirar mais que sans */
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -61,7 +72,8 @@ body {
   min-height: 100vh;
 }
 
-img, svg {
+img,
+svg {
   display: block;
   max-width: 100%;
 }
@@ -90,7 +102,10 @@ button {
    TIPOGRAFIA — hierarquia editorial
    ============================================================ */
 
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   font-family: var(--f-titulo);
   font-weight: 500;
   line-height: 1.15;
@@ -100,7 +115,8 @@ h1, h2, h3, h4 {
 
 h1 {
   font-size: clamp(2.5rem, 5.5vw, 4.25rem);
-  font-weight: 400;   /* Cormorant fica elegante em peso baixo em títulos grandes */
+  font-weight: 400;
+  /* Cormorant fica elegante em peso baixo em títulos grandes */
   letter-spacing: -0.015em;
 }
 
@@ -117,14 +133,17 @@ h3 {
 
 /* Italic em títulos = palavra-âncora, sempre em terracota
    (o padrão visual dos posts dela) */
-h1 em, h2 em, h3 em {
+h1 em,
+h2 em,
+h3 em {
   font-style: italic;
   color: var(--terracota);
   font-weight: 400;
 }
 
 p {
-  max-width: 62ch;   /* legibilidade — nunca linhas muito largas em serif */
+  max-width: 62ch;
+  /* legibilidade — nunca linhas muito largas em serif */
   color: var(--creme);
 }
 
@@ -173,7 +192,8 @@ p {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(58, 74, 61, 0.85);   /* mesma cor de fundo, semi-transparente */
+  background: rgba(58, 74, 61, 0.85);
+  /* mesma cor de fundo, semi-transparente */
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--linha);
@@ -280,7 +300,8 @@ p {
 }
 
 .site-footer p {
-  max-width: none;   /* sobrescreve o max-width padrão */
+  max-width: none;
+  /* sobrescreve o max-width padrão */
   margin: 0.35rem 0;
   color: var(--creme-suave);
 }
@@ -312,6 +333,7 @@ p {
   text-align: center;
   border-radius: 4px;
 }
+
 /* ============================================================
    TEXTURA DE FUNDO — grão sutil via SVG inline (data-URI)
    Zero request extra. Opacidade baixíssima: você só sente quando não tá lá.
@@ -328,8 +350,8 @@ body {
 
 .hero {
   padding: 1rem 0 2rem;
-  min-height: auto;           
-  display: block;            
+  min-height: auto;
+  display: block;
 }
 
 .hero-grid {
@@ -356,14 +378,18 @@ body {
 }
 
 .hero h1 {
-  letter-spacing: -0.025em;   /* apertar levemente */
-  word-spacing: -0.05em;      /* apertar espaço entre palavras */
-  line-height: 1.05;          /* linhas mais próximas verticalmente */
+  letter-spacing: -0.025em;
+  /* apertar levemente */
+  word-spacing: -0.05em;
+  /* apertar espaço entre palavras */
+  line-height: 1.05;
+  /* linhas mais próximas verticalmente */
 }
 
 .hero .lead {
   margin-bottom: 2rem;
-  max-width: 38ch;   /* estreito de propósito: ritmo contemplativo */
+  max-width: 38ch;
+  /* estreito de propósito: ritmo contemplativo */
 }
 
 .hero-ctas {
@@ -372,10 +398,8 @@ body {
   flex-wrap: wrap;
 }
 
-/* Retrato — no mobile aparece PRIMEIRO (order -1),
-   no desktop volta pra ordem natural do DOM */
+/* Foto — no mobile aparece por segundo agora, ficou melhor que a foto aparecendo antes, achei que ficou meio zuado a foto antes*/
 .hero-photo {
-  order: -1;
   max-width: 340px;
   margin: 0 auto;
   width: 100%;
@@ -383,7 +407,6 @@ body {
 
 @media (min-width: 900px) {
   .hero-photo {
-    order: 0;
     max-width: none;
   }
 }
@@ -391,10 +414,12 @@ body {
 .portrait {
   width: 100%;
   height: auto;
-  max-height: calc(100vh - 160px);   /* garante que cabe menos header e padding */
+  max-height: calc(100vh - 160px);
+  /* garante que cabe menos header e padding */
   filter: drop-shadow(0 12px 40px rgba(0, 0, 0, 0.35));
-}a
+}
 
+a
 /* ============================================================
    SECTION LABEL — numeração editorial (usado em várias seções)
    ============================================================ */
@@ -403,7 +428,8 @@ body {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  padding-top: 1.5rem;   /* alinha visualmente com primeira linha do h2 */
+  padding-top: 1.5rem;
+  /* alinha visualmente com primeira linha do h2 */
 }
 
 .section-num {
@@ -423,7 +449,7 @@ body {
 }
 
 /* ============================================================
-   SOBRE A ESCUTA
+   SOBRE O TRABALHO
    ============================================================ */
 
 .sobre-grid {
@@ -446,7 +472,8 @@ body {
 .sobre-p {
   margin-bottom: 1.75rem;
   max-width: 55ch;
-  line-height: 1.85;   /* mais alto que o padrão: ritmo respirado */
+  line-height: 1.85;
+  /* mais alto que o padrão: ritmo respirado */
 }
 
 /* Terceiro parágrafo — o "operacional" — ganha tratamento de citação */
@@ -480,13 +507,13 @@ body {
 .para-quem-lista {
   display: flex;
   flex-direction: column;
-  gap: 5rem;           
+  gap: 5rem;
   max-width: 780px;
 }
 
 @media (min-width: 700px) {
   .para-quem-lista {
-    gap: 5.5rem;          
+    gap: 5.5rem;
   }
 }
 
@@ -502,11 +529,13 @@ body {
 
 .quem-titulo {
   font-family: var(--f-titulo);
-  font-size: clamp(1.15rem, 1.8vw, 1.35rem);   /* antes: 1.4 a 1.85rem */
+  font-size: clamp(1.15rem, 1.8vw, 1.35rem);
+  /* antes: 1.4 a 1.85rem */
   font-weight: 500;
   margin-bottom: 1rem;
   max-width: 38ch;
-  line-height: 1.4;                             /* antes: 1.3 */
+  line-height: 1.4;
+  /* antes: 1.3 */
   color: var(--creme-forte);
   letter-spacing: 0.005em;
 }
@@ -522,6 +551,7 @@ body {
   line-height: 1.85;
   color: var(--creme-suave);
 }
+
 /* ============================================================
    SOBRE MIM — foto grande + texto pessoal
    Layout inverso do hero: foto à esquerda, texto à direita
@@ -536,7 +566,8 @@ body {
 
 @media (min-width: 900px) {
   .sobre-mim-grid {
-    grid-template-columns: 5fr 6fr;   /* foto um pouco menor que texto */
+    grid-template-columns: 5fr 6fr;
+    /* foto um pouco menor que texto */
     gap: 5rem;
   }
 }
@@ -572,7 +603,8 @@ body {
   margin-top: 2.5rem;
   font-size: 1.4rem;
   color: var(--terracota);
-  border: none;               /* remove border se herdou de .sobre-p--pause */
+  border: none;
+  /* remove border se herdou de .sobre-p--pause */
   padding: 0;
 }
 
