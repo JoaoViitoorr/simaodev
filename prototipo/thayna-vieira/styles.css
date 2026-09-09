@@ -479,13 +479,13 @@ body {
 .para-quem-lista {
   display: flex;
   flex-direction: column;
-  gap: 3.5rem;
+  gap: 5rem;           
   max-width: 780px;
 }
 
 @media (min-width: 700px) {
   .para-quem-lista {
-    gap: 4rem;
+    gap: 5.5rem;          
   }
 }
 
@@ -501,18 +501,19 @@ body {
 
 .quem-titulo {
   font-family: var(--f-titulo);
-  font-size: clamp(1.4rem, 2.5vw, 1.85rem);
-  font-weight: 400;
-  margin-bottom: 1.25rem;
-  max-width: 32ch;
-  line-height: 1.3;
+  font-size: clamp(1.15rem, 1.8vw, 1.35rem);   /* antes: 1.4 a 1.85rem */
+  font-weight: 500;
+  margin-bottom: 1rem;
+  max-width: 38ch;
+  line-height: 1.4;                             /* antes: 1.3 */
   color: var(--creme-forte);
+  letter-spacing: 0.005em;
 }
 
-/* Sobrescreve o italic terracota padrão pra ser um pouco mais suave aqui */
 .quem-titulo em {
   font-style: italic;
   color: var(--terracota);
+  font-weight: 400;
 }
 
 .quem-bloco p {
