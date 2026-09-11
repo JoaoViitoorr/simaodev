@@ -1,0 +1,28 @@
+{
+  "name": "simaodev",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Site pessoal e estúdio de landing pages pra profissionais e pequenos negócios do Triângulo Mineiro.",
+  "main": "vite.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JoaoViitoorr/simaodev.git"
+  },
+  "keywords": [],
+  "author": "João Vitor Simão",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JoaoViitoorr/simaodev/issues"
+  },
+  "homepage": "https://github.com/JoaoViitoorr/simaodev#readme",
+  "devDependencies": {
+    "vite": "^8.3.0"
+  },
+  "dependencies": {
+    "three": "^0.186.0"
+  }
+}
