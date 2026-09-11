@@ -6,8 +6,10 @@
   "description": "Site pessoal e estúdio de landing pages pra profissionais e pequenos negócios do Triângulo Mineiro.",
   "main": "vite.config.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "dev": "vite",
+  "build": "vite build",
+  "preview": "vite preview"
+},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/JoaoViitoorr/simaodev.git"
